@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/tslint-refactor.svg)](https://www.npmjs.com/package/tslint-refactor)
+
 # tslint-refactor
 TSLint rules to help with code cleanup. 
 Idea behind having additional rules apart from the built-in tslint `ban` rule is to enable different levels for different issues in your code.
