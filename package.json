@@ -1,0 +1,25 @@
+{
+  "name": "tslint-refactor",
+  "version": "0.1.0",
+  "description": "TSLint rules to help with refactoring the code",
+  "repository": "https://github.com/monkey3310/tslint-refactor.git", 
+  "author": "Maciej Malkowski <maciej.malkowski@agoda.com>",
+  "main": "tslint-refactor.json",
+  "license": "Apache-2.0",
+  "private": false,
+  "scripts": {
+    "compile": "tsc"
+  },
+  "peerDependencies": {
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "tsutils": "^2.27.2"
+  },
+  "devDependencies": {
+    "@types/node": "^10.5.2",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
+  }
+}

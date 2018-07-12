@@ -1,0 +1,29 @@
+{
+    "version": "2.4.2",
+    "compilerOptions": {
+        "declaration": true,
+        "lib": ["es6"],
+        "module": "commonjs",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "lib/",
+        "rootDir": "src/",
+        "sourceMap": false,
+        "strict": true,
+        "target": "es5",
+        "plugins": [
+            {
+                "name": "tslint-language-service",
+                "alwaysShowRuleFailuresAsWarnings": true,
+                "ignoreDefinitionFiles": true
+            }
+        ]
+    },
+    "exclude": [
+        "lib",
+        "node_modules"
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "rulesDirectory": "./lib/rules",
+    "rules": {
+        "do-not-use": false
+    }
+}
