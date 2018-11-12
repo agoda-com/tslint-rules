@@ -1,6 +1,8 @@
 {
     "rulesDirectory": "./lib/rules",
     "rules": {
-        "do-not-use": false
+        "do-not-use": false,
+        "no-mount-and-snapshot": false,
+        "no-set-timeout-in-test": false
     }
 }
