@@ -5,20 +5,17 @@ export class Rule extends Lint.Rules.AbstractRule {
     public static FAILURE_STRING = "Should not have mount and snapshot in the same test case";
 
     public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
-        // only run the rule on test files
-        if (!new RegExp("\\b" + ".test" + "\\b").test(sourceFile.fileName)) {
-            return;
-        }
-
         return this.applyWithWalker(new NoMountAndSnapshotWalker(sourceFile, this.getOptions()));
     }
 }
 
 class NoMountAndSnapshotWalker extends Lint.RuleWalker {
     public visitCallExpression(node: ts.CallExpression) {
+        const fileName: string = node && node.getSourceFile().fileName || "";
+        const isTestFile: boolean = new RegExp("\\b" + ".test" + "\\b").test(fileName);
         const functionName: string = node && node.expression && node.expression.getText() || "";
 
-        if (functionName === "it" && this.verify(["mount", "toMatchSnapshot"], node.getText())) {
+        if (isTestFile && functionName === "it" && this.verify(["mount", "toMatchSnapshot"], node.getText())) {
             this.addFailure(this.createFailure(node.getStart(), node.getWidth(), Rule.FAILURE_STRING));
         }
         super.visitCallExpression(node);
