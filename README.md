@@ -1,7 +1,7 @@
-[![npm](https://img.shields.io/npm/v/tslint-refactor.svg)](https://www.npmjs.com/package/tslint-refactor)
+[![npm](https://img.shields.io/npm/v/agoda-tslint.svg)](https://www.npmjs.com/package/agoda-tslint)
 
-# tslint-refactor
-TSLint rules to help with code cleanup. 
+# agoda-tslint
+Additional TSLint rules to help with code cleanup. 
 Idea behind having additional rules apart from the built-in tslint `ban` rule is to enable different levels for different issues in your code.
 
 ## do-not-use
