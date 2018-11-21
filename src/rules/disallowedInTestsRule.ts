@@ -19,7 +19,7 @@ class DisallowedInTestsWalker extends Lint.RuleWalker {
         const fileName: string = node && node.getSourceFile().fileName || "";
         const isTestFile: boolean = new RegExp("\\b" + ".test" + "\\b").test(fileName);
         const functionName: string = node && node.expression && node.expression.getText() || "";
-        const verifiedCustomOptions: ICustomOption[] = this.verifyAndGetCustomOption(functionName);
+        const verifiedCustomOptions: ICustomOption[] = this.verifyAndGetCustomOptions(functionName);
 
         if (isTestFile && verifiedCustomOptions.length > 0) {
             this.addFailure(
@@ -30,7 +30,7 @@ class DisallowedInTestsWalker extends Lint.RuleWalker {
         super.visitCallExpression(node);
     }
 
-    private verifyAndGetCustomOption(functionName: string): ICustomOption[] {
+    private verifyAndGetCustomOptions(functionName: string): ICustomOption[] {
         const customOptionSetInTslintJson: ICustomOption[] = this.getOptions();
         const verifiedCustomOptions: ICustomOption[] = customOptionSetInTslintJson.filter(option => option && option.name === functionName);
         return verifiedCustomOptions;

@@ -3,6 +3,6 @@
     "rules": {
         "do-not-use": false,
         "no-mount-and-snapshot": false,
-        "no-set-timeout-in-test": false
+        "disallowed-in-tests": false
     }
 }
