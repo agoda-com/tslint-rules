@@ -3,6 +3,7 @@
     "rules": {
         "do-not-use": false,
         "no-mount-and-snapshot": false,
-        "no-set-timeout-in-test": false
+        "no-set-timeout-in-test": false,
+        "root-relative-imports": false
     }
 }
