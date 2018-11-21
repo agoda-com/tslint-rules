@@ -21,13 +21,13 @@ class NoMountAndSnapshotWalker extends Lint.RuleWalker {
         super.visitCallExpression(node);
     }
     private verify(bannedList: string[], str: string): boolean {
-        const result = bannedList.map((bannedItem) => {
+        const result: (string|null)[] = bannedList.map((bannedItem) => {
             if (new RegExp("\\b" + bannedItem + "\\b").test(str)) {
                 return bannedItem;
             }
             return null;
         })
         .filter((value, index, accumulator) => value && accumulator.indexOf(value) === index);
-        return result.length === 2;
+        return result && result.length === 2;
     }
 }
