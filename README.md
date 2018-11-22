@@ -1,5 +1,5 @@
 [![npm](https://img.shields.io/npm/v/agoda-tslint.svg)](https://www.npmjs.com/package/agoda-tslint)
-
+[![build](https://travis-ci.org/agoda-com/agoda-tslint.svg?branch=master)](https://travis-ci.org/agoda-com/agoda-tslint)
 # agoda-tslint
 A set of TSLint rules used on some Agoda projects.
 
