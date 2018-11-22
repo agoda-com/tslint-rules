@@ -3,7 +3,7 @@
 # agoda-tslint
 A set of TSLint rules used on some Agoda projects.
 
-## do-not-use
+## `do-not-use`
 Prints out a warning, that this function / method should not be used, and should get refactored if possible
 
 A list of banned functions or methods in the following format:
@@ -19,9 +19,13 @@ A list of banned functions or methods in the following format:
       `[].forEach(...)`, `$(...).forEach(...)`, `arr.forEach(...)`, etc.
 
 Example usage:
-```js
+```json
 "do-not-use": [
     true,
     {name: ["*", "forEach"], message: "Please refactor and use regular loops instead"},
 ],
 ```
+```js
+[].forEach(e => doSomething()) // will show as error
+```
+
