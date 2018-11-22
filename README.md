@@ -25,3 +25,19 @@ Example usage:
     {name: ["*", "forEach"], message: "Please refactor and use regular loops instead"},
 ],
 ```
+
+## root-relative-imports
+Prevents traversing upwards in directory structure when importing files, forcing the use of root relative imports instead.
+
+Example:
+```js
+import { MyComponent } from './MyComponent'; -> allowed
+import { MyComponent } from './Child/MyComponent'; -> allowed
+import { MyComponent } from 'components/MyComponent'; -> allowed
+import { MyComponent } from '../components/MyComponent'; -> not allowed
+```
+
+Example usage:
+```js
+"root-relative-imports": true,
+```
