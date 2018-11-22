@@ -1,7 +1,6 @@
 language: node_js
-matrix:
-  include:
-  - name: "Compile"
+node_js:
+  - '8'
 
 before_script:
   - yarn install
