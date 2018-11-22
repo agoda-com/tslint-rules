@@ -3,6 +3,8 @@
     "rules": {
         "do-not-use": false,
         "no-mount-and-snapshot": false,
-        "disallowed-in-tests": false
+        "disallowed-in-tests": false,
+        "root-relative-imports": false
+
     }
 }
