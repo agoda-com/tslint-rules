@@ -31,7 +31,7 @@ Example usage:
 ],
 ```
 
-## root-relative-imports
+## `root-relative-imports`
 Prevents traversing upwards in directory structure when importing files, forcing the use of root relative imports instead.
 
 Example:
