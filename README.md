@@ -18,6 +18,11 @@ A list of banned functions or methods in the following format:
     * the first element can contain a wildcard (`*`) that matches everything. `{"name": ["*", "forEach"]}` bans
       `[].forEach(...)`, `$(...).forEach(...)`, `arr.forEach(...)`, etc.
 
+Example:
+```js
+[].forEach(e => doSomething()); // -> not allowed
+```
+
 Example usage:
 ```json
 "do-not-use": [
@@ -25,7 +30,19 @@ Example usage:
     {name: ["*", "forEach"], message: "Please refactor and use regular loops instead"},
 ],
 ```
+
+## root-relative-imports
+Prevents traversing upwards in directory structure when importing files, forcing the use of root relative imports instead.
+
+Example:
 ```js
-[].forEach(e => doSomething()) // will show as error
+import { MyComponent } from './MyComponent'; // -> allowed
+import { MyComponent } from './Child/MyComponent'; // -> allowed
+import { MyComponent } from 'components/MyComponent'; // -> allowed
+import { MyComponent } from '../components/MyComponent'; // -> not allowed
 ```
 
+Example usage:
+```js
+"root-relative-imports": true,
+```
