@@ -1,0 +1,36 @@
+do-not-use=true
+do-not-use.name=Do not use this function
+do-not-use.severity=MAJOR
+do-not-use.description=We should not be using this function, please check https://github.agodadev.io/standards-javascript/code-standards/tree/master/docs/typescript#lodash-vs-built-in
+do-not-use.debtFunc=LINEAR_OFFSET
+do-not-use.debtScalar=15min
+do-not-use.debtOffset=1h
+do-not-use.debtType=READABILITY
+
+no-mount-and-snapshot=true
+no-mount-and-snapshot.name=Do not use this function
+no-mount-and-snapshot.severity=MAJOR
+no-mount-and-snapshot.description=We should not test with snapshots mounted components.
+no-mount-and-snapshot.debtFunc=LINEAR_OFFSET
+no-mount-and-snapshot.debtScalar=1h
+no-mount-and-snapshot.debtOffset=1h
+no-mount-and-snapshot.debtType=READABILITY
+
+disallowed-in-tests=true
+disallowed-in-tests.name=Do not use this function
+disallowed-in-tests.severity=MAJOR
+disallowed-in-tests.description=We should not use this function in test files.
+disallowed-in-tests.debtFunc=LINEAR_OFFSET
+disallowed-in-tests.debtScalar=30min
+disallowed-in-tests.debtOffset=1h
+disallowed-in-tests.debtType=READABILITY
+
+root-relative-imports=true
+root-relative-imports.name=Do not use this function
+root-relative-imports.severity=MAJOR
+root-relative-imports.description=We should not be traversing upwards in directory structure when importing files, use root relative imports instead.
+root-relative-imports.debtFunc=LINEAR_OFFSET
+root-relative-imports.debtScalar=15min
+root-relative-imports.debtOffset=1h
+root-relative-imports.debtType=READABILITY
+

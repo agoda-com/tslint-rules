@@ -1,4 +1,5 @@
 src/
+sonarqube/
 yarn.lock
 tsconfig.json
 *.MD

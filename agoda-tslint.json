@@ -5,6 +5,5 @@
         "no-mount-and-snapshot": false,
         "disallowed-in-tests": false,
         "root-relative-imports": false
-
     }
 }
