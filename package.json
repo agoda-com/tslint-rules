@@ -8,7 +8,8 @@
   "license": "Apache-2.0",
   "private": false,
   "scripts": {
-    "compile": "tsc"
+    "build": "yarn tslint && tsc",
+    "tslint": "node node_modules/tslint/lib/tslint-cli.js -p tsconfig.json"
   },
   "peerDependencies": {
     "tslint": "^5.10.0",

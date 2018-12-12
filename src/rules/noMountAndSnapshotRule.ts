@@ -1,5 +1,5 @@
-import * as ts from "typescript";
 import * as Lint from "tslint";
+import * as ts from "typescript";
 
 export class Rule extends Lint.Rules.AbstractRule {
     public static FAILURE_STRING = "Should not have mount and snapshot in the same test case";
@@ -21,7 +21,7 @@ class NoMountAndSnapshotWalker extends Lint.RuleWalker {
         super.visitCallExpression(node);
     }
     private verify(bannedList: string[], str: string): boolean {
-        const result: (string|null)[] = bannedList.map((bannedItem) => {
+        const result: Array<string|null> = bannedList.map((bannedItem) => {
             if (new RegExp("\\b" + bannedItem + "\\b").test(str)) {
                 return bannedItem;
             }

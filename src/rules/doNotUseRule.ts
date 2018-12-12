@@ -1,21 +1,21 @@
+import * as Lint from "tslint";
 import { isCallExpression, isIdentifier, isPropertyAccessExpression } from "tsutils";
 import * as ts from "typescript";
-import * as Lint from "tslint";
 
-interface FunctionDoNotUse {
+interface IFunctionDoNotUse {
     name: string;
     message?: string;
 }
-interface MethodDoNotUse extends FunctionDoNotUse {
+interface IMethodDoNotUse extends IFunctionDoNotUse {
     object: string[];
 }
 
-interface Options {
-    functions: FunctionDoNotUse[];
-    methods: MethodDoNotUse[];
+interface IOptions {
+    functions: IFunctionDoNotUse[];
+    methods: IMethodDoNotUse[];
 }
 
-interface OptionsInput {
+interface IOptionsInput {
     name: string | string[];
     message?: string;
 }
@@ -80,9 +80,9 @@ export class Rule extends Lint.Rules.AbstractRule {
     }
 }
 
-function parseOptions(args: Array<string | string[] | OptionsInput>): Options {
-    const functions: FunctionDoNotUse[] = [];
-    const methods: MethodDoNotUse[] = [];
+function parseOptions(args: Array<string | string[] | IOptionsInput>): IOptions {
+    const functions: IFunctionDoNotUse[] = [];
+    const methods: IMethodDoNotUse[] = [];
     for (const arg of args) {
         if (typeof arg === "string") {
             functions.push({name: arg});
@@ -97,7 +97,7 @@ function parseOptions(args: Array<string | string[] | OptionsInput>): Options {
                     methods.push({object: [arg[0]], name: arg[1], message: arg[2]});
             }
         } else if (!Array.isArray(arg.name)) {
-            functions.push(arg as FunctionDoNotUse);
+            functions.push(arg as IFunctionDoNotUse);
         } else {
             switch (arg.name.length) {
                 case 0:
@@ -113,7 +113,7 @@ function parseOptions(args: Array<string | string[] | OptionsInput>): Options {
     return { functions, methods };
 }
 
-class DoNotUseFunctionWalker extends Lint.AbstractWalker<Options> {
+class DoNotUseFunctionWalker extends Lint.AbstractWalker<IOptions> {
     public walk(sourceFile: ts.SourceFile) {
         const cb = (node: ts.Node): void => {
             if (isCallExpression(node)) {

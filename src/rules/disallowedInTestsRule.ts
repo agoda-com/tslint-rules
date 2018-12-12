@@ -1,5 +1,5 @@
-import * as ts from "typescript";
 import * as Lint from "tslint";
+import * as ts from "typescript";
 
 interface ICustomOption {
     name: string;
@@ -32,7 +32,7 @@ class DisallowedInTestsWalker extends Lint.RuleWalker {
 
     private verifyAndGetCustomOptions(functionName: string): ICustomOption[] {
         const customOptionSetInTslintJson: ICustomOption[] = this.getOptions();
-        const verifiedCustomOptions: ICustomOption[] = customOptionSetInTslintJson.filter(option => option && option.name === functionName);
+        const verifiedCustomOptions: ICustomOption[] = customOptionSetInTslintJson.filter((option) => option && option.name === functionName);
         return verifiedCustomOptions;
     }
 }
