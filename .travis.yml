@@ -6,4 +6,4 @@ before_script:
   - yarn install
   
 script:
-  - yarn compile
+  - yarn build
