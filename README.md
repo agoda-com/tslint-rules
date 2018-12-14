@@ -58,12 +58,25 @@ name of the call expression you want to ban in the test files.
 ### Message
 warning message you would like to give to the particular callExpression.
 
+Example:
+```js
+//myFile.test.tsx
+
+it('all elements are loaded correctly', (done) => {
+    const wrapper = mount(<SomeComponent {...someComponentParams} />);
+    // not allowed
+    setTimeout(
+        () => {
+            expect(...)
+        }, 0);
+});
+```
 Example usage:
 ```js
 {
     "disallowed-in-tests": [
       true,
-      {"name": "process.nextTick", "message": "some message"}
+      {"name": "setTimeout", "message": "no setTimeout allow in test files"}
     ]
 }
 ```
@@ -71,6 +84,28 @@ Example usage:
 ## `no-mount-and-snapshot`
 Prints out a warning, that you should not be using `mount` and `toMatchSnapshot` in the same test case.
 
+Example
+```js
+//myFile.test.tsx
+
+// not allowed
+it('all elements are loaded correctly', () => {
+    const wrapper = mount(<SomeComponent {...someComponentParams} />);
+    expect(enzymeToJson(wrapper)).toMatchSnapshot();
+});
+
+// allowed
+it('all elements are loaded correctly', () => {
+    const wrapper = shallow(<SomeComponent {...someComponentParams} />);
+    expect(enzymeToJson(wrapper)).toMatchSnapshot();
+});
+
+// allowed
+it('all elements are loaded correctly', () => {
+    const wrapper = mount(<SomeComponent {...someComponentParams} />);
+    expect(wrapper.find(myComponent).length).toBe(1);;
+});
+```
 Example usage:
 ```js
 "no-mount-and-snapshot": true,
