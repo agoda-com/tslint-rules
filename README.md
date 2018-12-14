@@ -46,3 +46,67 @@ Example usage:
 ```js
 "root-relative-imports": true,
 ```
+
+## `disallowed-in-tests`
+Prints out a warning, that this CallExpression should not be used in the TEST files, and should get refactored if possible.
+
+### name
+name of the call expression you want to ban in the test files.
+* if that callExpression is a function, just simple give the function name.
+* if that callExpression is a method, give use please write down the full path `"object.method"`
+
+### Message
+warning message you would like to give to the particular callExpression.
+
+Example:
+```js
+//myFile.test.tsx
+
+it('all elements are loaded correctly', (done) => {
+    const wrapper = mount(<SomeComponent {...someComponentParams} />);
+    // not allowed
+    setTimeout(
+        () => {
+            expect(...)
+        }, 0);
+});
+```
+Example usage:
+```js
+{
+    "disallowed-in-tests": [
+      true,
+      {"name": "setTimeout", "message": "no setTimeout allow in test files"}
+    ]
+}
+```
+
+## `no-mount-and-snapshot`
+Prints out a warning, that you should not be using `mount` and `toMatchSnapshot` in the same test case.
+
+Example
+```js
+//myFile.test.tsx
+
+// not allowed
+it('all elements are loaded correctly', () => {
+    const wrapper = mount(<SomeComponent {...someComponentParams} />);
+    expect(enzymeToJson(wrapper)).toMatchSnapshot();
+});
+
+// allowed
+it('all elements are loaded correctly', () => {
+    const wrapper = shallow(<SomeComponent {...someComponentParams} />);
+    expect(enzymeToJson(wrapper)).toMatchSnapshot();
+});
+
+// allowed
+it('all elements are loaded correctly', () => {
+    const wrapper = mount(<SomeComponent {...someComponentParams} />);
+    expect(wrapper.find(myComponent).length).toBe(1);;
+});
+```
+Example usage:
+```js
+"no-mount-and-snapshot": true,
+```
