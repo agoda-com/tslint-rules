@@ -12,8 +12,8 @@
     "tslint": "node node_modules/tslint/lib/tslint-cli.js -p tsconfig.json"
   },
   "peerDependencies": {
-    "tslint": "^5.10.0",
-    "typescript": "^2.9.2"
+    "tslint": ">=5.10.0",
+    "typescript": ">=2.9.2"
   },
   "dependencies": {
     "tsutils": "^2.27.2"
