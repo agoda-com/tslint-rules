@@ -2,14 +2,15 @@
   "name": "agoda-tslint",
   "version": "0.3.1",
   "description": "A set of TSLint rules used on some Agoda projects.",
-  "repository": "https://github.com/agoda-com/agoda-tslint.git", 
+  "repository": "https://github.com/agoda-com/agoda-tslint.git",
   "author": "Maciej Malkowski <maciej.malkowski@agoda.com>",
   "main": "agoda-tslint.json",
   "license": "Apache-2.0",
   "private": false,
   "scripts": {
     "build": "yarn tslint && tsc",
-    "tslint": "node node_modules/tslint/lib/tslint-cli.js -p tsconfig.json"
+    "tslint": "node node_modules/tslint/lib/tslint-cli.js -p tsconfig.json",
+    "test": "jest"
   },
   "peerDependencies": {
     "tslint": ">=5.10.0",
@@ -19,8 +20,12 @@
     "tsutils": "^2.27.2"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.11",
     "@types/node": "^10.5.2",
+    "jest": "^24.7.1",
+    "ts-jest": "^24.0.1",
     "tslint": "^5.10.0",
+    "tslint-config-airbnb": "^5.11.1",
     "typescript": "^2.9.2"
   }
 }
