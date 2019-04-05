@@ -4,6 +4,7 @@
         "do-not-use": false,
         "no-mount-and-snapshot": false,
         "disallowed-in-tests": false,
-        "root-relative-imports": false
+        "root-relative-imports": false,
+        "no-triple-equals-null": false
     }
 }
