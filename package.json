@@ -8,8 +8,8 @@
   "license": "Apache-2.0",
   "private": false,
   "scripts": {
-    "build": "yarn tslint && tsc",
-    "tslint": "node node_modules/tslint/lib/tslint-cli.js -p tsconfig.json",
+    "build": "yarn lint && tsc",
+    "lint": "tslint -p tsconfig.json",
     "test": "jest"
   },
   "peerDependencies": {
@@ -21,11 +21,11 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
-    "@types/node": "^10.5.2",
+    "@types/node": "^11.13.0",
     "jest": "^24.7.1",
     "ts-jest": "^24.0.1",
-    "tslint": "^5.10.0",
+    "tslint": "^5.15.0",
     "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^2.9.2"
+    "typescript": "^3.4.1"
   }
 }
