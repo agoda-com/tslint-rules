@@ -25,7 +25,7 @@ describe(rule, () => {
   it('allow === undefined when no-undefined-check is disabled', () => {
     const src = 'const x = "" === undefined;';
 
-    const result = helper({src, rule});
+    const result = helper({ src, rule });
     expect(result.errorCount).toBe(0);
   });
 
@@ -61,7 +61,7 @@ describe(rule, () => {
     const src = 'const x = "" === null;';
     const output = 'const x = "" == null;';
 
-    const result = helper({src, rule});
+    const result = helper({ src, rule });
     expect(result.errorCount).toBe(1);
     expect(getFixedResult({ src, rule })).toEqual(output);
   });
@@ -70,7 +70,7 @@ describe(rule, () => {
     const src = 'const x = "" !== null;';
     const output = 'const x = "" != null;';
 
-    const result = helper({src, rule});
+    const result = helper({ src, rule });
     expect(result.errorCount).toBe(1);
     expect(getFixedResult({ src, rule })).toEqual(output);
   });
