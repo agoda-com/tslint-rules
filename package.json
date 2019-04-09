@@ -13,8 +13,8 @@
     "test": "jest"
   },
   "peerDependencies": {
-    "tslint": ">=5.10.0",
-    "typescript": ">=2.9.2"
+    "tslint": ">=5.15.0",
+    "typescript": ">=3.4.1"
   },
   "dependencies": {
     "tsutils": "^2.27.2"
