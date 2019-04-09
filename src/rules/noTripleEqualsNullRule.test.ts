@@ -43,7 +43,7 @@ describe(rule, () => {
     expect(failure.getFailure()).toBe(Rule.NEQ_FAILURE_STRING);
   });
 
-  it.only('disallow == undefined', () => {
+  it('disallow == undefined', () => {
     const src = 'const x = "" == undefined;';
     const failure = helper({ src, rule: undefinedCheckRule }).failures[0];
 

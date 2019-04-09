@@ -13,7 +13,7 @@ export class Rule extends Lint.Rules.AbstractRule {
     optionsDescription: Lint.Utils.dedent `
         One argument may be optionally provided:
 
-        * \`"no-undefined-check"\` disallows comparisons to \`undefined\`.`,
+        * \`"no-undefined-check"\` set to true: disallows comparisons to \`undefined\`.`,
     options: {
       type: 'array',
       items: {
