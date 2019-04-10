@@ -1,6 +1,6 @@
 {
   "name": "agoda-tslint",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "A set of TSLint rules used on some Agoda projects.",
   "repository": "https://github.com/agoda-com/agoda-tslint.git",
   "author": "Maciej Malkowski <maciej.malkowski@agoda.com>",
