@@ -1,19 +1,16 @@
 language: node_js
 node_js:
   - '8'
-
 before_script:
   - yarn install
-
 script:
   - yarn test
   - yarn build
-
 deploy:
   provider: npm
-  email: "monkey3310@gmail.com"
+  email: stefan.knoch@agoda.com
   api_key:
-    secure: qBQiRFcnW/HtnaUF8NcMkd2s0J75N7o9P1R55GGqT4GFhWGVv9QSvTBsdzTWKdQRFkgmGLVLkt0o/nDE25kuJOj6bVTAdt4HRoTPCcKn00ydT42qUheyO5DCf75LJsZ7hHNWFaXgZ4LHYDySWEMGI28fTdx5Va11OAzlaGoEUoS9PoM6Y+LGJmL/5pA+edcHLDWboXuYctrqfq9/w5X5ZCVl8VtUO3JpuD6vJzNpnPnFYEGxig4iylKPFY3hFOeoS0DKLpa6abC0pfDo+q8bHDs1Z3NilzU6krN+Y2E0rkpS2N+2lx6hxX/O0WZwiYXq9xWhDSHtpfg+kL/EfoQbS393yq8ZhNt78Wd8F1uvUUAJmJ7OaI1hnk+q3CPWrPlf8Vh9nh0rbaqs0AZGFiH5V7Nkjww57cO84TADbP3lxlk1lv08hlALRHtJDovd1feoImh9yklO3x7uisySeX7TRe9qMp7xGs1WDitAWeA5zZcCwpdjnVo4CuPMfftVBv/fiFrJt4rfmwojC2/YlUvZiHCWFt7JiU3cJxK6lajF58/TkEB7E7IURQVh6YHQncOfm7dFHD3i5U6+7N28XUVUHi5uTBpaT1QwDuMW4U7r74OsYfuECUZC542QCCdDuVMFsEN6VWAH+M5Wys0+/z83LFePsIj20f43hwnGraSoh6Q=
+    secure: fF4bZ/RJ/5fKDYq8WcLgkjUzUt/FmukDaIMzj8+s8kg+d3xxsQkV9h+RfL0x/zXlZJDSylyIYL8X0vbxeni7ehEJXr1xVJIHw1XCQHk1jumHXu4tpjFE6u32yBGcbBbLYqlQEPsLxTJsIPZaJnXsUOjRXv2xubL7GWkI1TroUaSRLYqcDzcAFJcwVaqJRrHO7v9LC/3epbG5YiJQby8kv3YZhez1NYhQ21MjKWaK2o0gQGhRLrnU68gKdC4fh/l+hPAl45D+0uPpG30HwEE4dNkIxcXzXfLF3oC7bmIMH6lUkLalR5XlsLl9EHB+cv6t11V4c0/UxhBD0G8pfdwOtcN9IkAoK71xfC/fHbKy3nqva981H/IG6IvKKSegtPXh7F2v+5KeQ95SVyhQ8SyM1BDXswITqNHgSTT9FGFOinOVZKcZJZ/6cmVRsNW6mCEmyYs1W5iiV4Eiy6WlO5WHlVRr0pyOKKTemczXUOyRe7r8ngSjmGjm3UimYh3qqM+bltWQPTSCmbbCE27qmc/W5Z+kKfmzIYmIH4wzmeS44rsqsKKnwnhp2oMRtsukrrWv7vgFOICDW46cW9snrQ4PPCzN4OKI56HCcaDzj5jwgiNlH+i6znByBMnV2dyUtRrG0e144jpyRkXDfG/qLz8e7Mok7+fWx6exuQUjQUSD2f4=
   on:
     branch: master
   skip_cleanup: true
