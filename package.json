@@ -7,6 +7,9 @@
   "main": "agoda-tslint.json",
   "license": "Apache-2.0",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "yarn lint && tsc",
     "lint": "tslint -p tsconfig.json",
