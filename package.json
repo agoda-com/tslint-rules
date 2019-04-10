@@ -1,5 +1,5 @@
 {
-  "name": "@agoda-com/tslint",
+  "name": "@agoda-com/tslint-rules",
   "version": "1.0.1",
   "description": "A set of TSLint rules used on some Agoda projects.",
   "repository": "https://github.com/agoda-com/agoda-tslint.git",
