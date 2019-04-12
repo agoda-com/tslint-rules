@@ -60,19 +60,23 @@ class NoTripleEqualsNullWalker extends Lint.RuleWalker {
       ExclamationEqualsToken,
     } = ts.SyntaxKind;
     const checkUndefined = this.hasOption(OPTION_NO_UNDEFINED_CHECK);
-    const isNotTripleEqual = operatorToken.kind !== EqualsEqualsEqualsToken;
-    const isNotTripleExcEqual = operatorToken.kind !== ExclamationEqualsEqualsToken;
-    const isNotDoubleEqual = operatorToken.kind !== EqualsEqualsToken;
-    const isNotDoubleExcEqual = operatorToken.kind !== ExclamationEqualsToken;
+    const isNotTripleEqual = operatorToken.kind !== EqualsEqualsEqualsToken
+      && operatorToken.kind !== ExclamationEqualsEqualsToken;
+    const isNotDoubleEqual = operatorToken.kind !== EqualsEqualsToken && operatorToken.kind !== ExclamationEqualsToken;
+    const hasNull = left.kind === NullKeyword || right.kind === NullKeyword;
+    const isNotNeqComparison = operatorToken.kind !== ExclamationEqualsEqualsToken
+      && operatorToken.kind !== ExclamationEqualsToken;
 
-    if ((isNotTripleEqual && isNotTripleExcEqual && !checkUndefined)
-        || (checkUndefined && isNotTripleEqual && isNotTripleExcEqual && isNotDoubleEqual && isNotDoubleExcEqual)) {
+    // skip code that does not contain equal comparison
+    if ((isNotTripleEqual && !checkUndefined)
+        || (checkUndefined && isNotTripleEqual && isNotDoubleEqual)
+        || (checkUndefined && !isNotDoubleEqual && hasNull)) {
       return;
     }
 
     const isLeft = left.kind === NullKeyword
       || (checkUndefined && (left.kind === UndefinedKeyword || left.getText() === 'undefined'));
-    const failureText = !isNotTripleEqual || !isNotDoubleEqual ? Rule.EQ_FAILURE_STRING : Rule.NEQ_FAILURE_STRING;
+    const failureText = isNotNeqComparison ? Rule.EQ_FAILURE_STRING : Rule.NEQ_FAILURE_STRING;
 
     if (isLeft) {
       const position = left.getStart();

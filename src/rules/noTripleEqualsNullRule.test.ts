@@ -92,4 +92,32 @@ describe(rule, () => {
     expect(result.errorCount).toBe(1);
     expect(getFixedResult({ src, rule: undefinedCheckRule })).toEqual(output);
   });
+
+  it('"== null" should not have any errors', () => {
+    const src = 'const x = "" == null;';
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
+
+  it('"== null" should not have any errors with no-undefined-check=true', () => {
+    const src = 'const x = "" == null;';
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
+
+  it('"!= null" should not have any errors', () => {
+    const src = 'const x = "" == null;';
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
+
+  it('"!= null" should not have any errors with no-undefined-check=true', () => {
+    const src = 'const x = "" == null;';
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
 });

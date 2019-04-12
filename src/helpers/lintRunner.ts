@@ -18,6 +18,10 @@ export const helper = ({ src, rule }: any) => {
 
 export const getFixedResult = ({ src, rule }: any) => {
   const result = helper({ src, rule });
+
+  if (!result.failures.length) {
+    return null;
+  }
   const fixes = result.failures[0].getFix();
 
   if (fixes) {
