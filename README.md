@@ -1,7 +1,26 @@
-[![npm](https://img.shields.io/npm/v/agoda-tslint.svg)](https://www.npmjs.com/package/agoda-tslint)
-[![build](https://travis-ci.org/agoda-com/agoda-tslint.svg?branch=master)](https://travis-ci.org/agoda-com/agoda-tslint)
+[![npm](https://img.shields.io/npm/v/@agoda-com/tslint-rules.svg)](https://www.npmjs.com/package/@agoda-com/tslint-rules)
+[![build](https://travis-ci.org/agoda-com/tslint-rules.svg?branch=master)](https://travis-ci.org/agoda-com/tslint-rules)
 # @agoda-com/tslint-rules
 A set of additional TSLint rules used on some Agoda projects.
+
+# 🛠 Install
+
+```
+yarn add -D @agoda-com/tslint-rules
+```
+
+Change your `tslint.json` file to extend the rules:
+```
+"extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "@agoda-com/tslint-rules"
+],
+```
+
+and explicity turn on desired rules (all are off by default)
+
+# Rules
 
 ## `do-not-use`
 Prints out a warning, that this function / method should not be used, and should get refactored if possible
