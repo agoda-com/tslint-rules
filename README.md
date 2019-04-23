@@ -129,3 +129,41 @@ Example usage:
 ```js
 "no-mount-and-snapshot": true,
 ```
+
+## `no-triple-equals-null`
+Prints out a warning, that you should not be using tripple equals with null (and optionaly undefined).
+Supports auto fix.
+
+Example
+```js
+//myFile.test.tsx
+
+// not allowed
+const x = "" === null;
+
+// not allowed
+const x = "" !== null;
+
+// allowed
+const x = "" === undefined;
+
+/**
+ * with option "no-undefined-check"
+ */
+// not allowed
+const x = "" === undefined;
+
+// not allowed
+const x = "" !== undefined;
+
+// not allowed
+const x = "" == undefined;
+
+// not allowed
+const x = "" != undefined;
+
+```
+Example usage:
+```js
+    "no-triple-equals-null": [true, "no-undefined-check"]
+```
